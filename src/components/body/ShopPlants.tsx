@@ -103,9 +103,10 @@ const PlantPurchase = () => {
   };
 
   const handleAddToCart = (index: number) => {
+    // Only check for Peace Lily limit (4 max)
     if (
-      plantItems[index].name === "Auditorium Hall (Capacity:200)" &&
-      plantItems[index].quantity >= 3
+      plantItems[index].name === "Peace Lily" &&
+      plantItems[index].quantity >= 4
     ) {
       return;
     }
@@ -122,7 +123,8 @@ const PlantPurchase = () => {
 
   // This is to make sure we don't go more than
   const remainingLilyQuantity =
-    4 - plantItems.find((item: any) => item.name === "Peace Lily")?.quantity; // Example value - replace with your logic
+    4 -
+    (plantItems.find((item: any) => item.name === "Peace Lily")?.quantity || 0);
 
   // Calculate the total number of items in the cart
   const totalCartItems = plantItems.reduce(
@@ -135,14 +137,18 @@ const PlantPurchase = () => {
       <div id='shop' className='main_container'>
         <nav className='navbar_event_conference'>
           <div className='navbar-section left'>
-            <div className='company_logo'>
+            <a
+              href='#sAboutUs'
+              className='company_logo'
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <img
                 src='/ParadiseNursery/favicon.ico'
                 alt='Plant Logo'
                 className='logo-icon'
               />
               <span>{companyName}</span>
-            </div>
+            </a>
           </div>
           <div className='navbar-section center'>
             <div className='nav_links'>
