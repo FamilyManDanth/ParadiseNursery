@@ -4,5 +4,13 @@ import react from "@vitejs/plugin-react-swc";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/paradise-nursery/", // This must match your repository name
+  base: "/paradise-nursery/",
+  build: {
+    assetsDir: "assets",
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+  },
 });
