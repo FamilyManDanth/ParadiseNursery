@@ -1,0 +1,582 @@
+#shop {
+  scroll-margin-top: 80px;
+}
+
+.main_container {
+  padding: 15px;
+  background: linear-gradient(135deg, #0a1f0a 0%, #0e2a0e 50%, #081a08 100%);
+  min-height: 100vh;
+  position: relative;
+  scroll-margin-top: 0;
+}
+
+.container_main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.plant_container {
+  background-color: transparent;
+  position: relative;
+  z-index: 5;
+}
+
+.items-information {
+  padding: 20px 0 20px 0;
+  background-color: transparent;
+  position: relative;
+  z-index: 5;
+}
+
+.text h1 {
+  text-align: center;
+  margin: 20px 0 40px;
+  color: #7bdb8e; /* Match with logo color */
+  font-size: 42px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 15px;
+  z-index: 10;
+  background-color: rgba(10, 31, 10, 0.5); /* Semi-transparent background */
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+@media screen and (max-width: 992px) {
+  .container_main {
+    padding: 0 15px;
+    max-width: 900px;
+  }
+
+  .text h1 {
+    font-size: 36px;
+    margin: 15px 0 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container_main {
+    padding: 0 10px;
+    max-width: 100%;
+  }
+
+  .text h1 {
+    font-size: 32px;
+    margin: 10px 0 25px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container_main {
+    padding: 0 8px;
+  }
+
+  .text h1 {
+    font-size: 28px;
+    margin: 10px 0 20px;
+    padding-bottom: 10px;
+  }
+}
+
+.text h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(123, 219, 142, 0.8),
+    transparent
+  );
+}
+
+/* Responsive design for title */
+@media screen and (max-width: 768px) {
+  .text h1 {
+    font-size: 32px;
+    margin: 15px 0 30px;
+  }
+}
+
+#leafy-plants,
+#figs-flowers {
+  scroll-margin-top: 80px; /* Adds space for the navbar when scrolling to these sections */
+}
+
+.plant_selection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 0 15px;
+}
+
+.plant_selection h2 {
+  grid-column: 1 / -1;
+  color: #7bdb8e; /* Match with logo color */
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(123, 219, 142, 0.3);
+  padding-bottom: 10px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  font-size: 32px;
+  background-color: rgba(10, 31, 10, 0.6); /* Semi-transparent background */
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Additional responsive styles for plant sections */
+@media screen and (max-width: 992px) {
+  .plant_selection {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .plant_selection {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 0 10px;
+  }
+
+  .plant_selection h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .plant_selection {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .plant_selection h2 {
+    font-size: 24px;
+  }
+}
+
+/* Responsive design for plant selection */
+@media screen and (max-width: 768px) {
+  .plant_selection {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .plant_selection h2 {
+    font-size: 28px;
+  }
+}
+
+.plant_main {
+  background-color: rgba(
+    28,
+    52,
+    28,
+    0.9
+  ); /* Slightly more opaque for better contrast against floral background */
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  color: white;
+  text-align: center;
+  border: 1px solid rgba(123, 219, 142, 0.3); /* Enhanced subtle border */
+  position: relative;
+  z-index: 5; /* Ensure it's above the background pattern */
+}
+
+.plant_main:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 30px 0px rgba(123, 219, 142, 0.4); /* Green glow */
+}
+
+.img {
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+}
+
+.total_cost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+}
+.total_cost h3 {
+  font-size: 30px;
+}
+.input-container .input_box5 {
+  height: 40px;
+  width: 200px;
+  font-size: 20px;
+}
+
+.items_view {
+  font-size: 20px;
+}
+/* Table styles moved to cart.css for consistent styling */
+.navbar_event_conference {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Three columns with the middle one larger */
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #0e4429; /* Richer green for the navbar */
+  color: white;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Increased z-index to ensure it stays on top */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  height: 80px; /* Set fixed height for consistency */
+  transition: all 0.3s ease;
+  background-image: linear-gradient(
+    to right,
+    rgba(14, 68, 41, 0.98),
+    rgba(14, 68, 41, 0.95),
+    rgba(14, 68, 41, 0.98)
+  );
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+  .navbar_event_conference {
+    grid-template-columns: 1fr; /* Stack the sections on small screens */
+    height: auto;
+    min-height: auto;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+  }
+}
+
+/* Medium sized screens */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .navbar_event_conference {
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 10px 15px;
+    height: auto;
+    min-height: 70px;
+  }
+
+  .nav_links a {
+    font-size: 18px;
+    padding: 8px 15px;
+    min-width: 120px;
+  }
+}
+
+/* Very small screens */
+@media screen and (max-width: 480px) {
+  .navbar_event_conference {
+    padding: 10px;
+  }
+}
+
+.company_logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+  color: #7bdb8e; /* Brighter green for the logo text */
+  font-weight: 700;
+  z-index: 10; /* Ensure it's above the nav links */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.company_logo:hover {
+  transform: scale(1.02);
+}
+
+.logo-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.navbar-section {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-section.left {
+  justify-content: flex-start;
+}
+
+.navbar-section.center {
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.navbar-section.right {
+  justify-content: flex-end;
+}
+
+/* Responsive design for navbar sections */
+@media screen and (max-width: 992px) {
+  .navbar-section.center {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-section {
+    width: 100%;
+    justify-content: center;
+    margin: 5px 0;
+    height: auto;
+  }
+
+  .navbar-section.left,
+  .navbar-section.right,
+  .navbar-section.center {
+    justify-content: center;
+    padding: 5px 0;
+  }
+
+  .company_logo {
+    font-size: 22px;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Fix for devices in landscape mode */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .navbar_event_conference {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+  }
+
+  .navbar-section.left {
+    width: auto;
+    flex: 1;
+    justify-content: flex-start;
+    order: 1;
+  }
+
+  .navbar-section.right {
+    width: auto;
+    flex: 1;
+    justify-content: flex-end;
+    order: 2;
+  }
+
+  .navbar-section.center {
+    width: 100%;
+    order: 3;
+    margin-top: 10px;
+  }
+}
+
+.nav_links {
+  display: flex;
+  justify-content: space-evenly; /* Use space-evenly for perfect distribution */
+  width: 100%; /* Take full width of the center section */
+  max-width: 500px; /* Limit maximum width to prevent excessive spacing */
+  margin: 0 auto; /* Center within the parent container */
+}
+
+.nav_links a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  font-size: 22px;
+  padding: 10px 25px;
+  border-radius: 5px;
+  white-space: nowrap; /* Prevent text wrapping */
+  text-align: center; /* Center the text */
+  flex: 1; /* Allow links to grow equally */
+  display: inline-block;
+  min-width: 140px; /* Set minimum width for each link */
+}
+
+.nav_links a:hover {
+  color: #7bdb8e; /* Match with logo color */
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+  .nav_links {
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nav_links a {
+    font-size: 18px;
+    padding: 8px 15px;
+    min-width: auto;
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.details_button {
+  padding: 8px 16px;
+  background-color: #efc16b;
+  color: black;
+  /* border: 1px solid white; */
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* background-color: transparent; */
+}
+
+/* Removed duplicate navbar rule */
+
+.items-information {
+  padding: 20px 0 20px 0; /* Adjusted padding for navbar */
+}
+
+.total_cost {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  background-color: transparent;
+  position: relative;
+  z-index: 5;
+}
+
+.totalCost {
+  font-size: 28px;
+  color: #7bdb8e;
+}
+
+.details_button {
+  background-color: #7bdb8e;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.details_button:hover {
+  background-color: #7bdb8e;
+  transform: translateY(-2px);
+}
+
+.cart-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10; /* Ensure it's above the nav links */
+  margin-right: 10px;
+  transition: transform 0.2s ease;
+}
+
+.cart-container:hover {
+  transform: scale(1.05);
+}
+
+.cart-icon {
+  background-color: #7bdb8e; /* Match with logo green */
+  color: #0a1f0a; /* Dark green text */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+  background-color: #65c077; /* Slightly darker on hover */
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #e35d5b; /* Slightly softer red */
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Responsive design for the cart icon */
+@media screen and (max-width: 768px) {
+  .cart-container {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .cart-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cart-container {
+    margin: 0;
+  }
+
+  .cart-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .cart-badge {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    top: -6px;
+    right: -6px;
+  }
+}

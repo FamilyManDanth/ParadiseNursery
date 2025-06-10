@@ -1,0 +1,89 @@
+/* Additional styling for plant cards and info */
+.plant_info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.plant_info h3 {
+  margin: 0;
+  font-size: 22px;
+  color: #7bdb8e;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.plant_info p {
+  margin: 5px 0 10px;
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.selected_count {
+  display: inline-block;
+  min-width: 30px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 8px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .plant_info h3 {
+    font-size: 20px;
+  }
+
+  .plant_info p {
+    font-size: 18px;
+  }
+
+  .img {
+    height: 200px;
+  }
+
+  .button_container {
+    padding: 6px 10px;
+  }
+}
+
+
+/* Enhanced button container */
+.button_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  background-color: rgba(10, 31, 10, 0.5);
+  padding: 8px 12px;
+  border-radius: 25px;
+  margin-top: 5px;
+}
+
+/* Plant image hover effects */
+.img {
+  position: relative;
+  overflow: hidden;
+}
+
+.img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(123, 219, 142, 0.1) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.plant_main:hover .img::before {
+  opacity: 1;
+}
