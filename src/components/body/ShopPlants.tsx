@@ -118,7 +118,7 @@ const PlantPurchase = () => {
     }
   };
 
-  const companyName = 'Paradise Nursery'
+  const companyName = "Paradise Nursery";
 
   // This is to make sure we don't go more than
   const remainingLilyQuantity =
@@ -136,7 +136,11 @@ const PlantPurchase = () => {
         <nav className='navbar_event_conference'>
           <div className='navbar-section left'>
             <div className='company_logo'>
-              <img src='/favicon.ico' alt='Plant Logo' className='logo-icon' />
+              <img
+                src='/ParadiseNursery/favicon.ico'
+                alt='Plant Logo'
+                className='logo-icon'
+              />
               <span>{companyName}</span>
             </div>
           </div>
