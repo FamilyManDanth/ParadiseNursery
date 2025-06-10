@@ -47,11 +47,13 @@ const PlantPurchase = () => {
           <table className='table_item_data'>
             <thead>
               <tr>
+                <th>Item</th>
                 <th>Name</th>
                 <th>Unit Cost</th>
                 <th>Quantity</th>
                 <th>Subtotal</th>
-                <th>Actions</th>
+                <th>Change</th>
+                <th>Remove Item</th>
               </tr>
             </thead>
             <tbody>
@@ -64,24 +66,46 @@ const PlantPurchase = () => {
 
                 return (
                   <tr key={index}>
+                    <td data-label='Item'>
+                      <img
+                        src={item.img}
+                        alt={item.name}
+                        style={{
+                          width: "50px",
+                          height: "50px",
+                          objectFit: "cover",
+                        }}
+                      />
+                    </td>
                     <td data-label='Name'>{item.name}</td>
                     <td data-label='Unit Cost'>${item.cost}</td>
                     <td data-label='Quantity'>{item.quantity}</td>
                     <td data-label='Subtotal'>${item.cost * item.quantity}</td>
-                    <td className='cart-quantity-controls'>
+                    <td data-label='Change'>
+                      <div className='cart-quantity-controls'>
+                        <button
+                          className='btn-minus btn-warning cart-btn'
+                          onClick={() => handleRemoveFromCart(plantIndex)}
+                          disabled={item.quantity <= 0}
+                        >
+                          &#8211;
+                        </button>
+                        <button
+                          className='btn-plus btn-success cart-btn'
+                          onClick={() => handleAddToCart(plantIndex)}
+                          disabled={isPeaceLily && remainingLilyQty <= 0}
+                        >
+                          &#43;
+                        </button>
+                      </div>
+                    </td>
+                    <td data-label='Remove Item'>
                       <button
-                        className='btn-minus btn-warning cart-btn'
-                        onClick={() => handleRemoveFromCart(plantIndex)}
-                        disabled={item.quantity <= 0}
+                        className='remove-items'
+                        onClick={() => handleRemoveItemCompletely(plantIndex)}
+                        title='Remove all of this item from cart'
                       >
-                        &#8211;
-                      </button>
-                      <button
-                        className='btn-plus btn-success cart-btn'
-                        onClick={() => handleAddToCart(plantIndex)}
-                        disabled={isPeaceLily && remainingLilyQty <= 0}
-                      >
-                        &#43;
+                        Remove
                       </button>
                     </td>
                   </tr>
@@ -115,6 +139,15 @@ const PlantPurchase = () => {
 
   const handleRemoveFromCart = (index: number) => {
     if (plantItems[index].quantity > 0) {
+      dispatch(decrementQuantity(index));
+    }
+  };
+
+  // Add this new function after handleRemoveFromCart
+  const handleRemoveItemCompletely = (index: number) => {
+    // Set quantity to 0 by dispatching decrementQuantity until it reaches 0
+    const currentQuantity = plantItems[index].quantity;
+    for (let i = 0; i < currentQuantity; i++) {
       dispatch(decrementQuantity(index));
     }
   };

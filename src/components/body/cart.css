@@ -1,22 +1,27 @@
 /* Cart quantity control styling */
 .cart-quantity-controls {
+  text-align: center;
+  vertical-align: middle;
   display: flex;
-  gap: 10px;
   justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
 .cart-btn {
-  font-size: 18px;
-  width: 30px !important;
-  height: 30px !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-width: 35px !important;
+  height: 35px !important;
+  margin: 0 !important;
+  font-weight: 500;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
   border: none;
   color: #0a1f0a;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
 }
 
 .btn-plus.cart-btn {
@@ -76,6 +81,7 @@
 
 /* Apply consistent background to all table rows */
 .table_item_data tbody tr {
+  height: 70px !important; /* Match the cell height */
   background-color: rgba(40, 70, 40, 0.95);
   transition: background-color 0.2s ease;
   border-bottom: 1px solid rgba(123, 219, 142, 0.9);
@@ -158,4 +164,57 @@
     padding: 10px 15px;
     font-size: 15px;
   }
+}
+
+.remove-items {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
+  background-color: #0e4429; /* Match navbar color */
+  color: #7bdb8e; /* Match logo color */
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(123, 219, 142, 0.3);
+}
+
+.remove-items:hover {
+  background-color: #0a3420;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Make sure the table cell allows flex layout */
+.table_item_data td.cart-quantity-controls {
+  vertical-align: middle !important;
+  text-align: center !important;
+  padding: 15px 10px !important;
+  height: 70px !important; /* Set specific height */
+}
+
+/* Force all table cells to center content vertically */
+.table_item_data td {
+  vertical-align: middle !important;
+  text-align: center !important;
+  padding: 15px 10px !important; /* Increased padding for better spacing */
+}
+
+/* Override text-align for specific columns that should be left-aligned */
+.table_item_data td[data-label="Name"] {
+  text-align: left !important;
+}
+
+/* Cart quantity controls container */
+.cart-quantity-controls {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100% !important;
+  gap: 8px !important;
+  flex-direction: row !important;
 }
