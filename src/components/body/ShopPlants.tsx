@@ -170,10 +170,18 @@ const PlantPurchase = () => {
       <div id='shop' className='main_container'>
         <nav className='navbar_event_conference'>
           <div className='navbar-section left'>
-            <a
-              href='#sAboutUs'
+            <div
               className='company_logo'
-              style={{ textDecoration: "none", color: "inherit" }}
+              onClick={() => {
+                setShowItems(false); // Go back to shopping view
+                // Scroll to top of page smoothly
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                cursor: "pointer",
+              }}
             >
               <img
                 src='/ParadiseNursery/favicon.ico'
@@ -181,7 +189,7 @@ const PlantPurchase = () => {
                 className='logo-icon'
               />
               <span>{companyName}</span>
-            </a>
+            </div>
           </div>
           <div className='navbar-section center'>
             <div className='nav_links'>
